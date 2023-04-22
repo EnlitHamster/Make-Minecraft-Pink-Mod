@@ -1,29 +1,28 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "mmp",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Make Minecraft Pink",
+  "description": "First mod after years. The idea was born during a let's play with my wife, and got developed on the pool-side in a vacation resort drinking pina coladas.",
   "authors": [
-    "Me!"
+    "EnlitHamster"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/EnlitHamster/Make-Minecraft-Pink-Mod"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/mmp/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "io.enlithamster.github.MMP_Mod"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "mmp.mixins.json"
   ],
 
   "depends": {

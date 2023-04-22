@@ -6,7 +6,7 @@
   "mixins": [
   ],
   "client": [
-    "ExampleMixin"
+    "io.enlithamster.github.mixin.ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1

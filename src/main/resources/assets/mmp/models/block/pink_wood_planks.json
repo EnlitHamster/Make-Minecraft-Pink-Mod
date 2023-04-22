@@ -1,0 +1,6 @@
+{
+  "parents": "block/cube_all",
+  "textures": {
+    "all": "mmp:block/pink_wood_planks"
+  }
+}
