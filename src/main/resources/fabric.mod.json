@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "mmp",
-  "version": "${version}",
+  "version": "0.1",
 
   "name": "Make Minecraft Pink",
   "description": "First mod after years. The idea was born during a let's play with my wife, and got developed on the pool-side in a vacation resort drinking pina coladas.",
@@ -19,6 +19,12 @@
   "entrypoints": {
     "main": [
       "io.enlithamster.github.MMP_Mod"
+    ],
+    "client": [
+      "io.enlithamster.github.MMP_Client"
+    ],
+    "fabric-datagen": [
+      "io.enlithamster.github.MMP_DataGenerator"
     ]
   },
   "mixins": [
