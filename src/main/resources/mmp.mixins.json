@@ -4,6 +4,8 @@
   "package": "io.enlithamster.github.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "MMP_TrunkPlacerType",
+    "MMP_FoliagePlacerType"
   ],
   "client": [
     "MMP_Mixin"

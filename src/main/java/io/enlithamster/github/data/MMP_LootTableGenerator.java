@@ -15,5 +15,7 @@ public class MMP_LootTableGenerator extends FabricBlockLootTableProvider {
         addDrop(MMP_Blocks.PINKLER_WOOD);
         addDrop(MMP_Blocks.PINKLER_PLANKS);
         addDrop(MMP_Blocks.PINKLER_SAPLING);
+        addDrop(MMP_Blocks.PINKLER_LEAVES);
+        addDrop(MMP_Blocks.FLOWERING_PINKLER_LEAVES);
     }
 }

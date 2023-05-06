@@ -1,5 +1,6 @@
 package io.enlithamster.github;
 
+import io.enlithamster.github.data.MMP_LanguageProvider;
 import io.enlithamster.github.data.MMP_LootTableGenerator;
 import io.enlithamster.github.data.MMP_ModelProvider;
 import io.enlithamster.github.data.MMP_WorldGenerator;
@@ -18,6 +19,7 @@ public class MMP_DataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(MMP_LootTableGenerator::new);
         pack.addProvider(MMP_ModelProvider::new);
         pack.addProvider(MMP_WorldGenerator::new);
+        pack.addProvider(MMP_LanguageProvider::new);
     }
 
     @Override

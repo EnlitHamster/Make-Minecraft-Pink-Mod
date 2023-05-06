@@ -21,6 +21,9 @@ public class MMP_ModelProvider extends FabricModelProvider {
 
         generator.registerTintableCrossBlockState(
                 MMP_Blocks.PINKLER_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
+
+        generator.registerSimpleCubeAll(MMP_Blocks.PINKLER_LEAVES);
+        generator.registerSimpleCubeAll(MMP_Blocks.FLOWERING_PINKLER_LEAVES);
     }
 
     @Override

@@ -2,7 +2,7 @@ package io.enlithamster.github.block;
 
 import io.enlithamster.github.MMP_Mod;
 import io.enlithamster.github.item.MMP_ItemGroup;
-import io.enlithamster.github.world.tree.PinkWoodSaplingGenerator;
+import io.enlithamster.github.world.tree.PinklerSaplingGenerator;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -28,21 +28,32 @@ public class MMP_Blocks {
         return FabricBlockSettings.copyOf(original).strength(2.0f).requiresTool();
     }
 
+    private static FabricBlockSettings pinklerLeavesSettings() {
+        return FabricBlockSettings.copyOf(Blocks.OAK_LEAVES);
+    }
+
     public static final FabricBlockSettings S_PINKLER_LOG = pinklerSettings(Blocks.OAK_LOG);
     public static final FabricBlockSettings S_PINKLER_WOOD = pinklerSettings(Blocks.OAK_WOOD);
     public static final FabricBlockSettings S_PINKLER_PLANKS = pinklerSettings(Blocks.OAK_PLANKS);
     public static final FabricBlockSettings S_PINKLER_SAPLING = pinklerSettings(Blocks.OAK_SAPLING);
+    public static final FabricBlockSettings S_PINKLER_LEAVES = pinklerLeavesSettings();
 
     public static final Block PINKLER_LOG = registerBlock("pinkler_log", new PillarBlock(S_PINKLER_LOG));
     public static final Block PINKLER_WOOD = registerBlock("pinkler_wood", new PillarBlock(S_PINKLER_WOOD));
     public static final Block PINKLER_PLANKS = registerBlock("pinkler_planks", new Block(S_PINKLER_PLANKS));
     public static final Block PINKLER_SAPLING =
-            registerBlock("pinkler_sapling", new SaplingBlock(new PinkWoodSaplingGenerator(), S_PINKLER_SAPLING));
+            registerBlock("pinkler_sapling", new SaplingBlock(new PinklerSaplingGenerator(), S_PINKLER_SAPLING));
+    public static final Block PINKLER_LEAVES = registerBlock("pinkler_leaves", new LeavesBlock(S_PINKLER_LEAVES));
+    public static final Block FLOWERING_PINKLER_LEAVES =
+            registerBlock("flowering_pinkler_leaves", new LeavesBlock(S_PINKLER_LEAVES));
 
     public static final Item PINKLER_LOG_ITEM = registerBlockItem("pinkler_log", PINKLER_LOG);
     public static final Item PINKLER_WOOD_ITEM = registerBlockItem("pinkler_wood", PINKLER_WOOD);
     public static final Item PINKLER_PLANKS_ITEM = registerBlockItem("pinkler_planks", PINKLER_PLANKS);
     public static final Item PINKLER_SAPLING_ITEM = registerBlockItem("pinkler_sapling", PINKLER_SAPLING);
+    public static final Item PINKLER_LEAVES_ITEM = registerBlockItem("pinkler_leaves", PINKLER_LEAVES);
+    public static final Item FLOWERING_PINKLER_LEAVES_ITEM =
+            registerBlockItem("flowering_pinkler_leaves", FLOWERING_PINKLER_LEAVES);
 
 
     private static void addToItemGroup(Item item, ItemGroup group) {
@@ -54,6 +65,8 @@ public class MMP_Blocks {
         addToItemGroup(PINKLER_WOOD_ITEM, MMP_ItemGroup.WOODS);
         addToItemGroup(PINKLER_PLANKS_ITEM, MMP_ItemGroup.WOODS);
         addToItemGroup(PINKLER_SAPLING_ITEM, MMP_ItemGroup.WOODS);
+        addToItemGroup(PINKLER_LEAVES_ITEM, MMP_ItemGroup.WOODS);
+        addToItemGroup(FLOWERING_PINKLER_LEAVES_ITEM, MMP_ItemGroup.WOODS);
     }
 
     public static void registerBlocks() {

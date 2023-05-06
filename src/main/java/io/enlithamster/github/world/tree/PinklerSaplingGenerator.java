@@ -6,7 +6,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 
-public class PinkWoodSaplingGenerator extends SaplingGenerator {
+public class PinklerSaplingGenerator extends SaplingGenerator {
     @Override
     protected RegistryKey<ConfiguredFeature<?, ?>> getTreeFeature(Random random, boolean bees) {
         return MMP_ConfiguredFeatures.PINKLER_TREE_KEY;
