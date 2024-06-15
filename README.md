@@ -1,10 +1,20 @@
 # Make Mincraft Pink Mod
 
+> [!DISCLAIMER] I am aware I use a quite colored language. I want this to be clear, it is in no means intended as degrading towards any minority or demographic. I stray clear where I feel conflicted of slurs and derogatory terms. However, my humor is quite self-deprecating at times. You will see me use terms like "cunt" to refer to myself. Because, paraphrasing Ricky Gervais, "I am a little _italian_ cunt". Please, do not take offence in my use of these terms. If you do, feel free to send me an email. I will do my best to understand your points, and take them at heart.
+
 ## Setup
 
-This is a not so serious mod, just to practice my Java and modding skills.
+This is a not so serious mod, it exists just to practice my Java and modding skills.
 
 Any feature request is more than welcome, even the craziest. The least I can do, is put my Software Engineering degree to some use.
+
+If you wish to develop on this mod, and you are like me and prefer VSCode to Eclipse and IDEA, you need to make sure you are using the right version of the JDK. For compatibility reasons, JDK 17 is highly advised, otherwise have fun hacking your newer version to make it work with the mod.
+
+You should definitely use `jenv` to manage your environments, it makes your life easier. If you are a whiney cunt like myself, you can also just run:
+
+```bash
+`export JAVA_HOME=`/usr/libexec/java_home -v17`
+```
 
 ## Here are some screenshots
 
