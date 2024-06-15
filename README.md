@@ -1,6 +1,7 @@
 # Make Mincraft Pink Mod
 
-> [!DISCLAIMER] I am aware I use a quite colored language. I want this to be clear, it is in no means intended as degrading towards any minority or demographic. I stray clear where I feel conflicted of slurs and derogatory terms. However, my humor is quite self-deprecating at times. You will see me use terms like "cunt" to refer to myself. Because, paraphrasing Ricky Gervais, "I am a little _italian_ cunt". Please, do not take offence in my use of these terms. If you do, feel free to send me an email. I will do my best to understand your points, and take them at heart.
+> [!WARNING]
+> I am aware I use a quite colored language. I want this to be clear, it is in no means intended as degrading towards any minority or demographic. I stray clear where I feel conflicted of slurs and derogatory terms. However, my humor is quite self-deprecating at times. You will see me use terms like "cunt" to refer to myself. Because, paraphrasing Ricky Gervais, "I am a little _italian_ cunt". Please, do not take offence in my use of these terms. If you do, feel free to send me an email. I will do my best to understand your points, and take them at heart.
 
 ## Setup
 
@@ -16,10 +17,15 @@ You should definitely use `jenv` to manage your environments, it makes your life
 `export JAVA_HOME=`/usr/libexec/java_home -v17`
 ```
 
+To bundle the mod and update it in the mods folder of the run configuration, use `make jar`. 
+
+> [!NOTE]
+> Currently, development supports only UNIX systems, because I don't like Windows for development. If you want to contribute and are on Windows, but you are unsure how to setup your environment, feel free to post an issue or contact me directly, and we can work together on it.
+
 ## Here are some screenshots
 
 #### The Pinkler Tree
-![2024-06-14_22 36 10](https://github.com/EnlitHamster/Make-Minecraft-Pink-Mod/assets/37407738/dfd09f0a-013c-46f4-af30-9f000a36839c)
+![2024-06-15_11 49 29](https://github.com/EnlitHamster/Make-Minecraft-Pink-Mod/assets/37407738/5120d60b-2125-46de-9fa7-79c7e19b27b7)
 
 #### The Pinkler Blocks
 ![2024-06-14_22 36 15](https://github.com/EnlitHamster/Make-Minecraft-Pink-Mod/assets/37407738/f4ea07cd-992f-4a9d-87c0-ed4efb28a586)
