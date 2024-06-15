@@ -69,7 +69,7 @@ public class PinklerTrunkPlacer extends TrunkPlacer {
             BlockPos startPos,
             TreeFeatureConfig config
     ) {
-        int branchesHeight = height / 3;
+        int branchesHeight = Math.min(4, height / 3);
         int trunkHeight = height - branchesHeight;
 
         // The nodes keep the generation direction in their foliageRadius!
@@ -86,6 +86,7 @@ public class PinklerTrunkPlacer extends TrunkPlacer {
         MMP_Mod.LOGGER.info("\t- Trunk Height: " + trunkHeight);
         MMP_Mod.LOGGER.info("\t- Branches Height: " + branchesHeight);
 
+        // Generate trunk
         for (int i = 0; i < trunkHeight; i++) {
             BlockPos trunkPos = new BlockPos(x, y + i, z);
             if (TreeFeature.isAirOrLeaves(world, trunkPos)) {
@@ -93,9 +94,8 @@ public class PinklerTrunkPlacer extends TrunkPlacer {
             }
         }
 
-        var directions = Direction.Type.HORIZONTAL.iterator();
-        while (directions.hasNext()) {
-            Direction direction = directions.next();
+        for (Direction direction : Direction.Type.HORIZONTAL) {
+            MMP_Mod.LOGGER.trace("Direction: " + direction.getName());
             int dx = direction.getOffsetX();
             int dz = direction.getOffsetZ();
 

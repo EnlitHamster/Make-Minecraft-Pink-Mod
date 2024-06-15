@@ -5,7 +5,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import io.enlithamster.github.MMP_Mod;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.TestableWorld;
@@ -32,6 +31,19 @@ public class PinklerFoliagePlacer extends FoliagePlacer {
         return MMP_Mod.PINKLER_FOLIAGE_PLACER;
     }
 
+    protected void generateVerticalCanopy(
+        TestableWorld world,
+        FoliagePlacer.BlockPlacer placer,
+        Random random,
+        TreeFeatureConfig config,
+        BlockPos center,
+        int canopyHeight
+    ) {
+        for (int i = 0; i < canopyHeight; i++) {
+            placeFoliageBlock(world, placer, random, config, center.down(i));
+        }
+    }
+
     protected void generateTopCanopy(
             TestableWorld world,
             FoliagePlacer.BlockPlacer placer,
@@ -40,7 +52,7 @@ public class PinklerFoliagePlacer extends FoliagePlacer {
             FoliagePlacer.TreeNode treeNode,
             int canopyHeight
     ) {
-        BlockPos.Mutable center = treeNode.getCenter().mutableCopy();
+        BlockPos center = treeNode.getCenter();
 
         placeFoliageBlock(world, placer, random, config, center);
         placeFoliageBlock(world, placer, random, config, center.down());
@@ -49,12 +61,10 @@ public class PinklerFoliagePlacer extends FoliagePlacer {
         placeFoliageBlock(world, placer, random, config, center.west().down());
         placeFoliageBlock(world, placer, random, config, center.south().down());
 
-        for (int i = 2; i <= canopyHeight; i++) {
-            placeFoliageBlock(world, placer, random, config, center.east(2).down(i));
-            placeFoliageBlock(world, placer, random, config, center.north(2).down(i));
-            placeFoliageBlock(world, placer, random, config, center.west(2).down(i));
-            placeFoliageBlock(world, placer, random, config, center.south(2).down(i));
-        }
+        generateVerticalCanopy(world, placer, random, config, center.east().north().down(2), canopyHeight - 2);
+        generateVerticalCanopy(world, placer, random, config, center.north().west().down(2), canopyHeight - 2);
+        generateVerticalCanopy(world, placer, random, config, center.west().south().down(2), canopyHeight - 2);
+        generateVerticalCanopy(world, placer, random, config, center.south().east().down(2), canopyHeight - 2);
     }
 
     protected void generateSideCapony(
@@ -65,28 +75,15 @@ public class PinklerFoliagePlacer extends FoliagePlacer {
             FoliagePlacer.TreeNode treeNode,
             int canopyHeight
     ) {
-        BlockPos.Mutable center = treeNode.getCenter().mutableCopy();
-        int directionId = treeNode.getFoliageRadius();
-        Direction direction = Direction.byId(directionId);
-
-        int x = center.getX();
-        int y = center.getY();
-        int z = center.getZ();
+        BlockPos center = treeNode.getCenter();
 
         placeFoliageBlock(world, placer, random, config, center);
 
-        for (int i = 1; i <= canopyHeight; i++) {
-            BlockPos centerLayerPos = new BlockPos(x, y - i, z);
-            placeFoliageBlock(world, placer, random, config, centerLayerPos.offset(direction));
-            if (direction == Direction.NORTH || direction == Direction.SOUTH) {
-                placeFoliageBlock(world, placer, random, config, centerLayerPos.east());
-                placeFoliageBlock(world, placer, random, config, centerLayerPos.west());
-            }
-            if (direction == Direction.EAST || direction == Direction.WEST) {
-                placeFoliageBlock(world, placer, random, config, centerLayerPos.south());
-                placeFoliageBlock(world, placer, random, config, centerLayerPos.north());
-            }
-        }
+        int sideCanopyHeight = canopyHeight + random.nextBetween(-2, 0);
+        generateVerticalCanopy(world, placer, random, config, center.down().east(), sideCanopyHeight);
+        generateVerticalCanopy(world, placer, random, config, center.down().north(), sideCanopyHeight);
+        generateVerticalCanopy(world, placer, random, config, center.down().west(), sideCanopyHeight);
+        generateVerticalCanopy(world, placer, random, config, center.down().south(), sideCanopyHeight);
     }
 
     @Override
