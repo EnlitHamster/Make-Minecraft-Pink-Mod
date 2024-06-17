@@ -14,7 +14,7 @@ If you wish to develop on this mod, and you are like me and prefer VSCode to Ecl
 You should definitely use `jenv` to manage your environments, it makes your life easier. If you are a whiney cunt like myself, you can also just run:
 
 ```bash
-`export JAVA_HOME=`/usr/libexec/java_home -v17`
+export JAVA_HOME=`/usr/libexec/java_home -v17`
 ```
 
 To bundle the mod and update it in the mods folder of the run configuration, use `make jar`. 
